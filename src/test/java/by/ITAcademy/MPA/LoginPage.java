@@ -30,4 +30,9 @@ public class LoginPage {
         By nickOrEmailBy = By.xpath(LoginXpath.INPUT_NICK_OR_EMAIL_XPATH);
         driver.findElement(nickOrEmailBy).sendKeys(nickOrEmail);
     }
+
+    public void sendPassword(String password) {
+        By passwordBy = By.xpath(LoginXpath.INPUT_PASSWORD_XPATH);
+        driver.findElement(passwordBy).sendKeys(password);
+    }
 }
