@@ -3,6 +3,8 @@ package by.ITAcademy.MPA;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Scanner;
+
 public class LoginPage {
     private WebDriver driver;
 
@@ -42,5 +44,9 @@ public class LoginPage {
 
     public String getErrorInvalidCredentials() {
         return driver.findElement(By.xpath(LoginXpath.OUTPUT_ERROR_INVALID_CREDENTIALS_XPATH)).getText();
+    }
+
+    public String getInputPassword() {
+        return driver.findElement(By.xpath(LoginXpath.INPUT_PASSWORD_XPATH)).getAttribute("value");
     }
 }
