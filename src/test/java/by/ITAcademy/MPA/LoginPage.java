@@ -35,4 +35,8 @@ public class LoginPage {
         By passwordBy = By.xpath(LoginXpath.INPUT_PASSWORD_XPATH);
         driver.findElement(passwordBy).sendKeys(password);
     }
+
+    public String getErrorInvalidCredentials() {
+        return driver.findElement(By.xpath(LoginXpath.OUTPUT_ERROR_INVALID_CREDENTIALS_XPATH)).getText();
+    }
 }
