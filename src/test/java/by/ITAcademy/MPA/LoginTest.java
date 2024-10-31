@@ -46,6 +46,14 @@ public class LoginTest {
         Assertions.assertEquals(LoginMessage.EMPTY_NICK_OR_EMAIL, loginPage.getErrorEmptyNickOrEmailMessage());
     }
 
+    @Test void sendInvalidCredentialsTest(){
+        loginPage.sendNickOrEmail("test@test.com");
+        loginPage.sendPassword("HelloKitty333");
+        loginPage.clickButtonLogin();
+
+        Assertions.assertEquals(LoginMessage.INVALID_CREDENTIALS, loginPage.getErrorInvalidCredentials());
+    }
+
     @AfterEach
     public void tearDown() {
         driver.quit();
