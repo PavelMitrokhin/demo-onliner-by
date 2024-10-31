@@ -38,6 +38,14 @@ public class LoginTest {
         Assertions.assertEquals(LoginMessage.EMPTY_PASSWORD, loginPage.getErrorEmptyPasswordMessage());
     }
 
+    @Test
+    public void sendPasswordOnlyTest(){
+        loginPage.sendPassword("HelloKitty333");
+        loginPage.clickButtonLogin();
+
+        Assertions.assertEquals(LoginMessage.EMPTY_NICK_OR_EMAIL, loginPage.getErrorEmptyNickOrEmailMessage());
+    }
+
     @AfterEach
     public void tearDown() {
         driver.quit();
