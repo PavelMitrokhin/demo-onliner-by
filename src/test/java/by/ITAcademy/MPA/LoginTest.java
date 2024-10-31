@@ -23,7 +23,7 @@ public class LoginTest {
     }
 
     @Test
-    public void noCredentialsTest(){
+    public void noCredentialsTest() {
         loginPage.clickButtonLogin();
 
         Assertions.assertEquals(LoginMessage.EMPTY_NICK_OR_EMAIL, loginPage.getErrorEmptyNickOrEmailMessage());
@@ -31,7 +31,7 @@ public class LoginTest {
     }
 
     @Test
-    public void sendNickOrEmailOnlyTest(){
+    public void sendNickOrEmailOnlyTest() {
         loginPage.sendNickOrEmail("test@test.com");
         loginPage.clickButtonLogin();
 
@@ -39,19 +39,29 @@ public class LoginTest {
     }
 
     @Test
-    public void sendPasswordOnlyTest(){
+    public void sendPasswordOnlyTest() {
         loginPage.sendPassword("HelloKitty333");
         loginPage.clickButtonLogin();
 
         Assertions.assertEquals(LoginMessage.EMPTY_NICK_OR_EMAIL, loginPage.getErrorEmptyNickOrEmailMessage());
     }
 
-    @Test void sendInvalidCredentialsTest(){
+    @Test
+    public void sendInvalidCredentialsTest() {
         loginPage.sendNickOrEmail("test@test.com");
         loginPage.sendPassword("HelloKitty333");
         loginPage.clickButtonLogin();
 
         Assertions.assertEquals(LoginMessage.INVALID_CREDENTIALS, loginPage.getErrorInvalidCredentials());
+    }
+
+    @Test
+    public void buttonShowPasswordTest() {
+        String password = "HelloKitty333";
+        loginPage.sendPassword(password);
+        loginPage.clickButtonShowPassword();
+
+        Assertions.assertEquals(password, loginPage.getInputPassword());
     }
 
     @AfterEach
