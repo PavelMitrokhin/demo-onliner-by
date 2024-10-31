@@ -10,6 +10,10 @@ public class LoginPage {
         this.driver = driver;
     }
 
+    public void clickButtonEnterLoginPage(){
+        driver.findElement(By.xpath(LoginXpath.BUTTON_ENTER_LOGIN_PAGE_XPATH)).click();
+    }
+
     public void clickButtonLogin() {
         driver.findElement(By.xpath(LoginXpath.BUTTON_LOGIN_XPATH)).click();
     }
