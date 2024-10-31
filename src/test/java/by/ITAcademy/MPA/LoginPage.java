@@ -25,4 +25,9 @@ public class LoginPage {
     public String getErrorEmptyPasswordMessage() {
         return driver.findElement(By.xpath(LoginXpath.OUTPUT_ERROR_EMPTY_PASSWORD_XPATH)).getText();
     }
+
+    public void sendNickOrEmail(String nickOrEmail) {
+        By nickOrEmailBy = By.xpath(LoginXpath.INPUT_NICK_OR_EMAIL_XPATH);
+        driver.findElement(nickOrEmailBy).sendKeys(nickOrEmail);
+    }
 }
