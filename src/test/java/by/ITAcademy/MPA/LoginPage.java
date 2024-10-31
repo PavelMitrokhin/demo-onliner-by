@@ -36,6 +36,10 @@ public class LoginPage {
         driver.findElement(passwordBy).sendKeys(password);
     }
 
+    public void clickButtonShowPassword(){
+        driver.findElement(By.xpath(LoginXpath.BUTTON_SHOW_PASSWORD_XPATH)).click();
+    }
+
     public String getErrorInvalidCredentials() {
         return driver.findElement(By.xpath(LoginXpath.OUTPUT_ERROR_INVALID_CREDENTIALS_XPATH)).getText();
     }
